@@ -5,7 +5,6 @@ from selenium.webdriver.chrome.options import Options
 
 
 class TodoTests:
-    print("hello world1")
     driver, action_chains = None, None
     chrome_options = Options()
     chrome_options.add_argument("--disable-extensions")
@@ -188,8 +187,7 @@ class TodoTests:
         self.switch_to_view_completed()
         time.sleep(2)
         index = self.find_a_task(task_for_completed)
-        to_return = self.find_a_task(task_for_uncompleted) == -1 and \
-                    index >= 0 and self.is_marked(index)
+        to_return = self.find_a_task(task_for_uncompleted) == -1 and index >= 0 and self.is_marked(index)
         self.driver.close()
         return to_return
 
@@ -213,4 +211,4 @@ if __name__ == '__main__':
     print("Clear completed tasks is: ", todo_tests.check_clear_completed_tasks("Wake up", "Clean the house"))
     print("check_view_all is: ", todo_tests.check_view_all("Wake up", "Clean the house"))
     print("check_view_active is: ", todo_tests.check_view_active("Wake up", "Clean the house"))
-    print("check_view_active is: ", todo_tests.check_view_completed("Wake up", "Clean the house"))
+    print("check_view_completed is: ", todo_tests.check_view_completed("Wake up", "Clean the house"))
